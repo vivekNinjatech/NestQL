@@ -2,6 +2,48 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Team {
+  """The unique identifier for the team"""
+  id: Int!
+
+  """The name of the team"""
+  name: String!
+
+  """The name of the stadium where the team plays"""
+  stadium: String!
+
+  """The year the team was founded"""
+  founded: Float!
+
+  """The number of players in the team"""
+  numberOfPlayers: Int
+
+  """The manager of the team"""
+  manager: String!
+
+  """The Capitan of the team"""
+  capitan: String!
+  players: [Player!]
+
+  """The league the team is part of"""
+  league: String!
+
+  """The total number of wins the team has"""
+  totalWins: Int!
+
+  """The total number of losses the team has"""
+  totalLosses: Int!
+
+  """The total number of draws the team has"""
+  totalDraws: Int!
+
+  """The total number of goals scored by the team"""
+  totalGoalsScored: Int!
+
+  """The total number of goals conceded by the team"""
+  totalGoalsConceded: Int!
+}
+
 type Player {
   id: Int!
   name: String!
@@ -17,14 +59,53 @@ type Player {
   yellowCards: Int!
   redCards: Int!
   matchesPlayed: Int!
+  teamId: Int!
+  team: Team!
+}
+
+type League {
+  """The unique identifier for the league"""
+  id: Int!
+
+  """The name of the league"""
+  name: String!
+
+  """The country where the league is based"""
+  country: String!
+
+  """The year the league was founded"""
+  founded: Float!
+
+  """The number of teams in the league"""
+  numberOfTeams: Int!
+
+  """The current champion of the league"""
+  currentChampion: String!
+
+  """The top scorer in the league"""
+  topScorer: String!
+
+  """The total number of goals scored in the league"""
+  totalGoals: Int!
 }
 
 type Query {
+  getPlayer(id: Float!): Player!
   players: [Player!]!
+  leagues: [League!]!
+  league(id: Int!): League!
+  teams: [Team!]!
+  team(id: Int!): Team!
 }
 
 type Mutation {
   createPlayer(player: createPlayerDTO!): Player!
+  createLeague(createLeagueInput: CreateLeagueInput!): League!
+  updateLeague(updateLeagueInput: UpdateLeagueInput!): League!
+  removeLeague(id: Int!): League!
+  createTeam(createTeamInput: CreateTeamInput!): Team!
+  updateTeam(updateTeamInput: UpdateTeamInput!): Team!
+  removeTeam(id: Int!): Team!
 }
 
 input createPlayerDTO {
@@ -41,4 +122,47 @@ input createPlayerDTO {
   matchesPlayed: Float!
   yellowCards: Float!
   redCards: Float!
+  teamId: Float!
+}
+
+input CreateLeagueInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateLeagueInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateTeamInput {
+  name: String!
+  stadium: String!
+  founded: Float!
+  numberOfPlayers: Float!
+  manager: String!
+  capitan: String!
+  league: String!
+  totalWins: Float!
+  totalLosses: Float!
+  totalDraws: Float!
+  totalGoalsScored: Float!
+  totalGoalsConceded: Float!
+}
+
+input UpdateTeamInput {
+  name: String
+  stadium: String
+  founded: Float
+  numberOfPlayers: Float
+  manager: String
+  capitan: String
+  league: String
+  totalWins: Float
+  totalLosses: Float
+  totalDraws: Float
+  totalGoalsScored: Float
+  totalGoalsConceded: Float
+  id: Int!
 }

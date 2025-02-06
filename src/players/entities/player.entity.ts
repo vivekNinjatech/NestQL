@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
+import { Team } from 'src/teams/entities/team.entity';
 
 @ObjectType()
 @Entity()
@@ -11,7 +12,7 @@ export class Player {
   @Field()
   @Column()
   name: string;
-
+  
   @Field(() => Int)
   @Column()
   age: number;
@@ -59,4 +60,12 @@ export class Player {
   @Field(() => Int)
   @Column()
   matchesPlayed: number;
+
+  @Column()
+  @Field(() => Int)
+  teamId: number;
+
+  @ManyToOne(() => Team, (team) => team.players)
+  @Field(() => Team)
+  team: Team;
 }

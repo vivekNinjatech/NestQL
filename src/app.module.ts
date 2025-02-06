@@ -5,9 +5,13 @@ import { AppService } from './app.service';
 import { ApolloDriver } from '@nestjs/apollo';
 import { PlayersModule } from './players/players.module';
 import { join } from 'path';
-import { Player } from './players/player.entity';
+import { Player } from './players/entities/player.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LeaguesModule } from './leagues/leagues.module';
+import { TeamsModule } from './teams/teams.module';
 import * as dotenv from 'dotenv';
+import { Team } from './teams/entities/team.entity';
+import { League } from './leagues/entities/league.entity';
 dotenv.config();
 
 console.log(process.env.DB_TYPE);
@@ -24,10 +28,12 @@ console.log(process.env.DB_TYPE);
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Player],
+      entities: [Player, Team, League],
       synchronize: true, // Set to false in production
     }),
     PlayersModule,
+    LeaguesModule,
+    TeamsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
