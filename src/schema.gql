@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Player {
+  id: Int!
+  name: String!
+  age: Int!
+  nationality: String!
+  club: String!
+  jerseyNumber: Int!
+  height: Float
+  weight: Float
+  positions: [String!]!
+  goals: Int!
+  assists: Int!
+  yellowCards: Int!
+  redCards: Int!
+  matchesPlayed: Int!
+}
+
+type Query {
+  players: [Player!]!
+}
+
+type Mutation {
+  createPlayer(player: createPlayerDTO!): Player!
+}
+
+input createPlayerDTO {
+  name: String!
+  age: Float!
+  nationality: String!
+  club: String!
+  jerseyNumber: Float!
+  height: Float
+  weight: Float
+  positions: [String!]!
+  goals: Float!
+  assists: Float!
+  matchesPlayed: Float!
+  yellowCards: Float!
+  redCards: Float!
+}

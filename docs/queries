@@ -1,0 +1,21 @@
+
+mutation {
+    createPlayer(
+        player:{
+            name: "Guler", 
+            age: 20,
+            nationality:"Turkey",
+            jerseyNumber:21,
+            club:"RMA",	
+            height: 12,
+            weight:12,
+            positions: ["forward", "defender", "goalkeeper"],
+            goals:1,
+            assists:1,
+            yellowCards:1,
+            redCards:1,
+            matchesPlayed:1,
+        }){
+            name
+    }
+}
