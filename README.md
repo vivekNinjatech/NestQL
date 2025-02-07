@@ -1,103 +1,207 @@
-<<<<<<< HEAD
-# NestQL
-=======
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS + TypeScript + GraphQL + PostgreSQL Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+![NestJS Logo](https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg)
+![Postgreql Logo](https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg)
+![Typescript logo](https://en.wikipedia.org/wiki/TypeScript#/media/File:Typescript.svg)
+![GraphQL Logo](https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Overview
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project demonstrates how to set up a **backend API using NestJS**, leveraging **TypeScript, GraphQL, and PostgreSQL**. It provides a robust and scalable foundation for building GraphQL-based applications with a structured architecture.
 
-## Project setup
+## Features
 
-```bash
-$ npm install
+- 🚀 **NestJS** for modular and scalable backend development
+- 📜 **TypeScript** for strong typing and maintainability
+- 🔥 **GraphQL** API for flexible querying and efficient data retrieval
+- 🛢 **PostgreSQL** as the relational database
+- 🎭 **TypeORM** for ORM and database interactions
+- ✅ **GraphQL Playground** for easy API exploration
+- 🔐 **Validation and Error Handling** for input validation
+
+## Technologies Used
+
+- [NestJS](https://nestjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [GraphQL](https://graphql.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [TypeORM](https://typeorm.io/)
+- [Docker](https://www.docker.com/) *(Optional for database setup)*
+
+## Project Architecture
+
+```
+📂 nestjs-graphql-postgres
+├── 📁 src
+│   ├── 📁 modules
+│   │   ├── 📁 players
+│   │   │   ├── entities/
+│   │   │   ├── players.module.ts
+│   │   │   ├── players.resolver.ts
+│   │   │   ├── players.service.ts
+│   │   ├── 📁 teams
+│   │   │   ├── entities/
+│   │   │   ├── teams.module.ts
+│   │   │   ├── teams.resolver.ts
+│   │   │   ├── teams.service.ts
+│   ├── 📁 config
+│   │   ├── database.config.ts
+│   ├── app.module.ts
+│   ├── main.ts
+├── .env
+├── Dockerfile
+├── docker-compose.yml
+├── package.json
+├── README.md
 ```
 
-## Compile and run the project
+## Installation
 
-```bash
-# development
-$ npm run start
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [PostgreSQL](https://www.postgresql.org/) (or Docker for database setup)
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+### Clone the Repository
+```sh
+git clone https://github.com/your-username/nestjs-graphql-postgres.git
+cd nestjs-graphql-postgres
 ```
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+### Install Dependencies
+```sh
+npm install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+### Setup Environment Variables
+Create a `.env` file in the root directory and add:
+```env
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_USER=postgres
+DATABASE_PASSWORD=yourpassword
+DATABASE_NAME=nestjs_db
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Run PostgreSQL with Docker (Optional)
+```sh
+docker-compose up -d
+```
 
-## Resources
+### Run Migrations (if using TypeORM)
+```sh
+npm run migration:run
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### Start the Application
+```sh
+npm run start:dev
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## GraphQL API Usage
 
-## Support
+Once the server is running, navigate to:
+```
+http://localhost:3000/graphql
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Here you can explore and test queries/mutations using GraphQL Playground.
 
-## Stay in touch
+### Example GraphQL Query
+```graphql
+query {
+  getTeams {
+    id
+    name
+    stadium
+  }
+}
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Example GraphQL Mutation
+```graphql
+mutation {
+  createPlayer(
+    player: {
+      name: "Vinicius Jr",
+      age: 23,
+      nationality: "Brazil",
+      jerseyNumber: 7,
+      club: "Real Madrid",
+      height: 1.76,
+      weight: 73,
+      positions: ["Left Winger"],
+      goals: 12,
+      assists: 6,
+      yellowCards: 3,
+      redCards: 0,
+      matchesPlayed: 30,
+      teamId: 1
+    }
+  ) {
+    name
+  }
+}
+```
+
+## Docker Setup (Optional)
+
+If you want to run everything using Docker, create a `docker-compose.yml` file:
+```yaml
+version: '3.8'
+services:
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: nestjs_db
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    environment:
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: yourpassword
+      DATABASE_NAME: nestjs_db
+```
+Then run:
+```sh
+docker-compose up -d
+```
+
+## Folder Structure Explanation
+
+- **`modules/players`**: Contains the Player entity, service, resolver, and module
+- **`modules/teams`**: Contains the Team entity, service, resolver, and module
+- **`config/`**: Stores configuration files (e.g., database connection)
+- **`main.ts`**: Entry point of the application
+- **`app.module.ts`**: Root module that imports other modules
+
+## Images
+
+### GraphQL Playground
+![GraphQL Playground](https://graphql.org/img/og_image.png)
+
+### NestJS Architecture
+![NestJS](https://docs.nestjs.com/assets/logo-small.svg)
+
+## Contributing
+
+1. Fork the project
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Create a Pull Request
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
->>>>>>> d2b2bc7 (add: db conn, player schema, player resolver, create player API (mutation) and etc)
+This project is licensed under the MIT License.
+
