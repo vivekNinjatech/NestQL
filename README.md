@@ -2,8 +2,11 @@
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" alt="NestJS Logo" width="100" height="100"/>
+  +
   <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL Logo" width="100" height="100"/>
-  <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Typescript_logo_2020.svg" alt="TypeScript Logo" width="100" height="100"/>
+  +
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript Logo" width="100" height="100"/>
+  +
   <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg" alt="GraphQL Logo" width="100" height="100"/>
 </p>
 
@@ -191,10 +194,10 @@ docker-compose up -d
 ## Images
 
 ### GraphQL Playground
-![GraphQL Playground](https://graphql.org/img/og_image.png)
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" alt="NestJS Logo" width="100" height="100"/>
 
 ### NestJS Architecture
-![NestJS](https://docs.nestjs.com/assets/logo-small.svg)
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg" alt="GraphQL Logo" width="100" height="100"/>
 
 ## Contributing
 
