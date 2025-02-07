@@ -1,14 +1,26 @@
 # NestJS + TypeScript + GraphQL + PostgreSQL Backend
 
-<p align="center">
+<style>
+  img.plus-sign {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+  }
+  .centered-images {
+    text-align: center;
+  }
+</style>
+
+<div class="centered-images">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" alt="NestJS Logo" width="100" height="100"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" alt="Plus Logo" width="50" height="50"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Plus_symbol.svg" alt="Plus Logo" class="plus-sign"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL Logo" width="100" height="100"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" alt="Plus Logo" width="50" height="50"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Plus_symbol.svg" alt="Plus Logo" class="plus-sign"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript Logo" width="100" height="100"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" alt="Plus Logo" width="50" height="50"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Plus_symbol.svg" alt="Plus Logo" class="plus-sign"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg" alt="GraphQL Logo" width="100" height="100"/>
-</p>
+</div>
 
 
 
