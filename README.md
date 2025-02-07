@@ -2,11 +2,11 @@
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" alt="NestJS Logo" width="100" height="100"/>
-  +
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" alt="Plus Logo" width="50" height="50"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL Logo" width="100" height="100"/>
-  +
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" alt="Plus Logo" width="50" height="50"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript Logo" width="100" height="100"/>
-  +
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg" alt="Plus Logo" width="50" height="50"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg" alt="GraphQL Logo" width="100" height="100"/>
 </p>
 
@@ -190,14 +190,6 @@ docker-compose up -d
 - **`config/`**: Stores configuration files (e.g., database connection)
 - **`main.ts`**: Entry point of the application
 - **`app.module.ts`**: Root module that imports other modules
-
-## Images
-
-### GraphQL Playground
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" alt="NestJS Logo" width="100" height="100"/>
-
-### NestJS Architecture
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg" alt="GraphQL Logo" width="100" height="100"/>
 
 ## Contributing
 
