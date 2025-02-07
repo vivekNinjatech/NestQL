@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Player {
+  id              String   @id @default(uuid())
+  name            String
+  age             Int
+  nationality     String
+  country         String
+  clubId          String?
+  club            Club?    @relation(fields: [clubId], references: [id])
+  positions       String[]  // Example: ["Forward", "Midfielder"]
+  appearances     Int      @default(0)
+  goals          Int      @default(0)
+  assists        Int      @default(0)
+  height         Float?
+  weight         Float?
+  foot           String   // Example: "Left", "Right", "Both"
+  contractUntil  DateTime?
+  marketValue    Float?   // Example: 50.5 (in million euros)
+  nationalTeamId String?
+  nationalTeam   NationalTeam? @relation(fields: [nationalTeamId], references: [id])
+  topScorerIn     League[] @relation(name: "TopScorer")
+  mostAssistsIn   League[] @relation(name: "MostAssists")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Club {
+  id            String    @id @default(uuid())
+  name          String
+  stadium       String
+  founded       Int
+  leagueId      String
+  league        League    @relation(fields: [leagueId], references: [id])
+  players       Player[]
+  manager       String?
+  trophiesWon   Int       @default(0)
+  totalMatches  Int       @default(0)
+  totalWins     Int       @default(0)
+  totalDraws    Int       @default(0)
+  totalLosses   Int       @default(0)
+  avgAttendance Int?
+  website       String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model League {
+  id            String   @id @default(uuid())
+  name          String
+  country       String
+  clubs         Club[]
+  season        String   // Example: "2023-2024"
+  topScorerId   String?
+  topScorer     Player?  @relation(name: "TopScorer", fields: [topScorerId], references: [id])
+  mostAssistsId String?
+  mostAssists   Player?  @relation(name: "MostAssists", fields: [mostAssistsId], references: [id])
+  totalTeams    Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+
+model NationalTeam {
+  id              String   @id @default(uuid())
+  name            String
+  country         String
+  players         Player[]
+  coach           String
+  fifaRanking     Int?
+  worldCupsWon    Int      @default(0)
+  totalMatches    Int      @default(0)
+  totalWins       Int      @default(0)
+  totalDraws      Int      @default(0)
+  totalLosses     Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
