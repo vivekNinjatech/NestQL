@@ -4,12 +4,13 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { createPlayerDTO } from './dto';
 import { Team } from 'src/teams/entities/team.entity';
+import { TeamsService } from 'src/teams/teams.service';
 
 @Injectable()
 export class PlayersService {
   constructor(
     @InjectRepository(Player) private playerRepository: Repository<Player>,
-    @InjectRepository(Team) private teamRepository: Repository<Team>,
+    private readonly teamsService: TeamsService,
   ) {}
   async findAll(): Promise<Player[]> {
     return this.playerRepository.find(); // SELECT * FROM players
@@ -19,10 +20,10 @@ export class PlayersService {
     return this.playerRepository.findOneByOrFail({ id });
   }
   async createPlayer(player: createPlayerDTO): Promise<Player> {
-    const newPlayer = this.playerRepository.create(player); // INSERT INTO players
+    const newPlayer = this.playerRepository.create(player);
     return this.playerRepository.save(newPlayer);
   }
   async getTeam(ownerId: number): Promise<Team> {
-    return this.teamRepository.findOneByOrFail({ id: ownerId });
+    return this.teamsService.findOne(ownerId);
   }
 }

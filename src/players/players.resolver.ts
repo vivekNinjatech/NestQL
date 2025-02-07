@@ -1,4 +1,11 @@
-import { Args, Mutation, Parent, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver,
+} from '@nestjs/graphql';
 import { PlayersService } from './players.service';
 import { Player } from './entities/player.entity';
 import { createPlayerDTO } from './dto';
@@ -22,8 +29,8 @@ export class PlayersResolver {
     return this.playerService.createPlayer(player);
   }
 
-  @Query((returns) => Team)
-  getTeam(@Parent() player:Player): Promise<Team> {
+  @ResolveField((returns) => Team)
+  getTeam(@Parent() player: Player): Promise<Team> {
     return this.playerService.getTeam(player.teamId);
   }
 }

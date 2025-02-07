@@ -12,7 +12,7 @@ export class Player {
   @Field()
   @Column()
   name: string;
-  
+
   @Field(() => Int)
   @Column()
   age: number;

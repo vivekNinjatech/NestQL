@@ -61,6 +61,7 @@ type Player {
   matchesPlayed: Int!
   teamId: Int!
   team: Team!
+  getTeam: Team!
 }
 
 type League {
@@ -92,20 +93,20 @@ type League {
 type Query {
   getPlayer(id: Float!): Player!
   players: [Player!]!
-  leagues: [League!]!
-  league(id: Int!): League!
   teams: [Team!]!
   team(id: Int!): Team!
+  leagues: [League!]!
+  league(id: Int!): League!
 }
 
 type Mutation {
   createPlayer(player: createPlayerDTO!): Player!
-  createLeague(createLeagueInput: CreateLeagueInput!): League!
-  updateLeague(updateLeagueInput: UpdateLeagueInput!): League!
-  removeLeague(id: Int!): League!
   createTeam(createTeamInput: CreateTeamInput!): Team!
   updateTeam(updateTeamInput: UpdateTeamInput!): Team!
   removeTeam(id: Int!): Team!
+  createLeague(createLeagueInput: CreateLeagueInput!): League!
+  updateLeague(updateLeagueInput: UpdateLeagueInput!): League!
+  removeLeague(id: Int!): League!
 }
 
 input createPlayerDTO {
@@ -123,17 +124,6 @@ input createPlayerDTO {
   yellowCards: Float!
   redCards: Float!
   teamId: Float!
-}
-
-input CreateLeagueInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
-input UpdateLeagueInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
 }
 
 input CreateTeamInput {
@@ -164,5 +154,16 @@ input UpdateTeamInput {
   totalDraws: Float
   totalGoalsScored: Float
   totalGoalsConceded: Float
+  id: Int!
+}
+
+input CreateLeagueInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateLeagueInput {
+  """Example field (placeholder)"""
+  exampleField: Int
   id: Int!
 }
