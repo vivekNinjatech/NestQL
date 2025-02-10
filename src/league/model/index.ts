@@ -1,1 +1,1 @@
-export * from "./league.model"
+export * from './league.model';

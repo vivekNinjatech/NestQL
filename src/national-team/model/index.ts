@@ -1,1 +1,1 @@
-export * from "./national-team.model"
+export * from './national-team.model';

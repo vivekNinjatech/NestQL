@@ -1,1 +1,1 @@
-export * from "./club.model"
+export * from './club.model';
