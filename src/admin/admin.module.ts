@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { AdminResolver } from './admin.resolver';
+import { PrismaModule } from 'src/prisma/prisma.module';
 
 @Module({
-  providers: [AdminService, AdminResolver]
+  imports: [PrismaModule],
+  providers: [AdminService, AdminResolver],
 })
 export class AdminModule {}

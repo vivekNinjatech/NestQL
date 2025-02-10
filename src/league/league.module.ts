@@ -3,6 +3,6 @@ import { LeagueService } from './league.service';
 import { LeagueResolver } from './league.resolver';
 
 @Module({
-  providers: [LeagueService, LeagueResolver]
+  providers: [LeagueService, LeagueResolver],
 })
 export class LeagueModule {}

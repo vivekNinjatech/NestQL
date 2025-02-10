@@ -3,6 +3,6 @@ import { NationalTeamService } from './national-team.service';
 import { NationalTeamResolver } from './national-team.resolver';
 
 @Module({
-  providers: [NationalTeamService, NationalTeamResolver]
+  providers: [NationalTeamService, NationalTeamResolver],
 })
 export class NationalTeamModule {}

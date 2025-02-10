@@ -3,6 +3,6 @@ import { ClubService } from './club.service';
 import { ClubResolver } from './club.resolver';
 
 @Module({
-  providers: [ClubService, ClubResolver]
+  providers: [ClubService, ClubResolver],
 })
 export class ClubModule {}
