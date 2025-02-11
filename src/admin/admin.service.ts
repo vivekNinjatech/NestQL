@@ -9,7 +9,17 @@ export class AdminService {
   constructor(private prisma: PrismaService) {}
 
   getAdmins() {
-    return this.prisma.admin.findMany();
+    return this.prisma.admin.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        password: false,
+        updatedAt: true,
+      },
+    });
   }
   async createAdmin(createAdminDto: CreateAdminDTO): Promise<Admin> {
     createAdminDto.password = await argon.hash(createAdminDto.password);

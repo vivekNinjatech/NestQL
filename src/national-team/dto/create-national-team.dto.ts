@@ -1,6 +1,5 @@
-import { InputType, Field, PartialType } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 import { IsString, IsOptional, IsNumber } from 'class-validator';
-import { Player } from 'src/player/model';
 
 @InputType()
 export class CreateNationalTeamDTO {
@@ -12,8 +11,9 @@ export class CreateNationalTeamDTO {
   @Field()
   country: string;
 
-  @Field(() => [Player])
-  players: Player[];
+  @IsString({ each: true })
+  @Field(() => [String])
+  playerIds: string[];
 
   @IsString()
   @Field()
@@ -24,23 +24,28 @@ export class CreateNationalTeamDTO {
   @Field({ nullable: true })
   fifaRanking?: number;
 
+  @IsOptional()
   @IsNumber()
-  @Field()
-  worldCupsWon: number;
+  @Field({ nullable: true })
+  worldCupsWon?: number;
 
+  @IsOptional()
   @IsNumber()
-  @Field()
-  totalMatches: number;
+  @Field({ nullable: true })
+  totalMatches?: number;
 
+  @IsOptional()
   @IsNumber()
-  @Field()
-  totalWins: number;
+  @Field({ nullable: true })
+  totalWins?: number;
 
+  @IsOptional()
   @IsNumber()
-  @Field()
-  totalDraws: number;
+  @Field({ nullable: true })
+  totalDraws?: number;
 
+  @IsOptional()
   @IsNumber()
-  @Field()
-  totalLosses: number;
+  @Field({ nullable: true })
+  totalLosses?: number;
 }

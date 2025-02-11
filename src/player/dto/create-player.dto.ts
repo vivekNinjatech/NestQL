@@ -1,8 +1,11 @@
-import { InputType, Field, PartialType } from '@nestjs/graphql';
-import { IsString, IsOptional, IsNumber } from 'class-validator';
-import { Club } from 'src/club/model';
-import { NationalTeam } from 'src/national-team/model';
-import { League } from 'src/league/model';
+import { InputType, Field } from '@nestjs/graphql';
+import {
+  IsString,
+  IsInt,
+  IsOptional,
+  IsArray,
+  IsNumber,
+} from 'class-validator';
 
 @InputType()
 export class CreatePlayerDTO {
@@ -10,7 +13,7 @@ export class CreatePlayerDTO {
   @Field()
   name: string;
 
-  @IsNumber()
+  @IsInt()
   @Field()
   age: number;
 
@@ -27,18 +30,20 @@ export class CreatePlayerDTO {
   @Field({ nullable: true })
   clubId?: string;
 
+  @IsArray()
+  @IsString({ each: true })
   @Field(() => [String])
   positions: string[];
 
-  @IsNumber()
+  @IsInt()
   @Field()
   appearances: number;
 
-  @IsNumber()
+  @IsInt()
   @Field()
   goals: number;
 
-  @IsNumber()
+  @IsInt()
   @Field()
   assists: number;
 

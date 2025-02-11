@@ -2,8 +2,8 @@ import { InputType, Field } from '@nestjs/graphql';
 import { IsString } from 'class-validator';
 
 @InputType()
-export class GetNationalTeamDTO {
+export class GetPlayerByClubIdDTO {
   @IsString()
   @Field()
-  id: string;
+  clubId: string;
 }

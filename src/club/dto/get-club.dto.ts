@@ -1,8 +1,10 @@
-import { Field, ID } from '@nestjs/graphql';
+// get-club-by-name.dto.ts
+import { InputType, Field } from '@nestjs/graphql';
 import { IsString } from 'class-validator';
 
-export class GetClubDTO {
+@InputType()
+export class GetClubByIdDTO {
   @IsString()
-  @Field(() => ID)
+  @Field()
   id: string;
 }

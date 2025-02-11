@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
     const user: Admin | null = await this.adminService.getAdminByEmail({
       email,
     });
+    if (!user) throw new HttpException('User not found', HttpStatus.NOT_FOUND);
     if (user && (await argon.verify(user.password, password))) {
       ctx.user = user;
       return true;

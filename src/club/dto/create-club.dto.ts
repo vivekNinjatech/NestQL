@@ -1,6 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsString } from 'class-validator';
-import { Player } from 'src/player/model';
+import { IsString, IsOptional, IsNumber, IsUUID } from 'class-validator';
 
 @InputType()
 export class CreateClubDTO {
@@ -12,44 +11,51 @@ export class CreateClubDTO {
   @Field()
   stadium: string;
 
-  @IsString()
+  @IsNumber()
   @Field()
   founded: number;
 
-  @IsString()
+  @IsUUID()
   @Field()
   leagueId: string;
 
-  @Field(() => [Player])
-  players: Player[];
+  @IsString({ each: true })
+  @Field(() => [String], { nullable: true })
+  @IsOptional()
+  playerIds?: string[];
 
+  @IsString()
   @Field({ nullable: true })
+  @IsOptional()
   manager?: string;
 
-  @Field()
-  trophiesWon: number;
+  @IsNumber()
+  @Field({ defaultValue: 0 })
+  trophiesWon?: number;
 
-  @Field()
-  totalMatches: number;
+  @IsNumber()
+  @Field({ defaultValue: 0 })
+  totalMatches?: number;
 
-  @Field()
-  totalWins: number;
+  @IsNumber()
+  @Field({ defaultValue: 0 })
+  totalWins?: number;
 
-  @Field()
-  totalDraws: number;
+  @IsNumber()
+  @Field({ defaultValue: 0 })
+  totalDraws?: number;
 
-  @Field()
-  totalLosses: number;
+  @IsNumber()
+  @Field({ defaultValue: 0 })
+  totalLosses?: number;
 
+  @IsNumber()
   @Field({ nullable: true })
+  @IsOptional()
   avgAttendance?: number;
 
+  @IsString()
   @Field({ nullable: true })
+  @IsOptional()
   website?: string;
-
-  @Field(() => Date)
-  createdAt: Date;
-
-  @Field(() => Date)
-  updatedAt: Date;
 }
