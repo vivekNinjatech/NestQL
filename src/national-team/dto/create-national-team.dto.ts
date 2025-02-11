@@ -12,7 +12,7 @@ export class CreateNationalTeamDTO {
   country: string;
 
   @IsString({ each: true })
-  @Field(() => [String])
+  @Field(() => [String], { nullable: true })
   playerIds: string[];
 
   @IsString()

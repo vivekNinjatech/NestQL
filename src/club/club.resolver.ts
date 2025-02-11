@@ -11,12 +11,13 @@ import {
   GetClubByStadiumDTO,
   UpdateClubDTO,
 } from './dto';
+import { Club } from './model';
 
 @Resolver('Club')
 export class ClubResolver {
   constructor(private readonly clubService: ClubService) {}
 
-  @Mutation(() => String)
+  @Mutation(() => Club)
   async createClub(@Args('createClubDto') createClubDto: CreateClubDTO) {
     return this.clubService.createClub(createClubDto);
   }

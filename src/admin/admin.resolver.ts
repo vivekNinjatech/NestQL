@@ -16,9 +16,10 @@ export class AdminResolver {
   constructor(private adminService: AdminService) {}
 
   @Query((returns) => Admin)
-  @UseGuards(JwtGuard, new RoleGuard(Role.ADMIN))
+  @UseGuards(JwtGuard, new RoleGuard([Role.SUPER_ADMIN, Role.ADMIN]))
   getAdmin(
     @Args('getAdminDTO') getAdminDTO: GetAdminDTO,
+    @Context('user') user: Admin,
   ): Promise<Admin | null> {
     return this.adminService.getAdmin(getAdminDTO);
   }
@@ -30,7 +31,7 @@ export class AdminResolver {
   }
 
   @Query((returns) => [Admin])
-  @UseGuards(JwtGuard)
+  @UseGuards(JwtGuard, new RoleGuard([Role.SUPER_ADMIN]))
   getAdmins(@Context('user') user: Admin): Promise<Omit<Admin, 'password'>[]> {
     return this.adminService.getAdmins();
   }
@@ -46,6 +47,7 @@ export class AdminResolver {
       id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role,
     };
     return jsonwebtoken.sign(payload, process.env.JWT_SECRET!, {
       expiresIn: '1h',

@@ -3,14 +3,14 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { Role } from '@prisma/client';
 
 export class RoleGuard implements CanActivate {
-  public role: Role;
-  constructor(role: Role) {
-    this.role = role;
+  public roles: Role[];
+  constructor(roles: Role[]) {
+    this.roles = roles;
   }
   canActivate(context: ExecutionContext): boolean {
     const ctx = GqlExecutionContext.create(context).getContext();
     const { role } = ctx.user;
-    if (role === this.role) {
+    if (this.roles.includes(role)) {
       return true;
     }
     return false;
