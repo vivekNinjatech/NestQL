@@ -10,6 +10,8 @@ import { NationalTeamModule } from './national-team/national-team.module';
 import { PlayerModule } from './player/player.module';
 import { ClubModule } from './club/club.module';
 import { AuthModule } from './auth/auth.module';
+import { PaymentController } from './payment/payment.controller';
+import { PaymentService } from './payment/payment.service';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { AuthModule } from './auth/auth.module';
     LeagueModule,
     AuthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, PrismaService],
+  controllers: [AppController, PaymentController],
+  providers: [AppService, PrismaService, PaymentService],
 })
 export class AppModule {}
